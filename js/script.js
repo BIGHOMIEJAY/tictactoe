@@ -1,12 +1,15 @@
-
-
+var player1="o";
+var player2="x";
+var currentplayer="x";
+var numberofturns=0;
+var gameover=false;
 
 
 
 
 
 $("#button1").click(function() {
-    performLogic("#button1","#tile1");
+        performLogic("#button1","#tile1");
 });
 
 $("#button2").click(function() {
@@ -41,3 +44,27 @@ $("#button9").click(function() {
     performLogic("#button9","#tile9");
 });
 
+function performLogic(button,tile) {
+    $(tile).text(currentplayer);
+        changeturn();
+    checkdraw();
+}
+function changeturn() {
+    numberofturns=numberofturns+1
+
+    if(currentplayer==="x")   {
+
+        currentplayer="0"
+    }
+    else{currentplayer="x"
+
+    }
+
+    console.log (numberofturns)
+    console.log (currentplayer)
+}
+
+function checkdraw () {
+    if (numberofturns===9)
+        alert("it's a draw");
+}
